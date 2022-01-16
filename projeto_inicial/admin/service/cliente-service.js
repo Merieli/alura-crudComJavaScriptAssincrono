@@ -5,6 +5,30 @@ export const listaClientes = () => {
     })
 }
 
+const criaCliente = (nome, email) => {
+    return fetch(`http://localhost:3000/profile`, {
+        method : 'POST', //lista o que for inserido
+        headers: {//tipo de informação para o cabeçalho
+            'Content-Type' : 'application/json' //a informação enviada é do tipo application/json
+        },
+        body: JSON.stringify({ //em body, que é o corpo da requisição vão os dados que serão preenchidos no formulário
+            nome: nome, 
+            email: email
+        })//a comunicação cliente-servidor é feita em texto por isso é preciso converte-lo em um JS valido com o JSON.stringify()
+    })
+    .then( resposta => {
+        return resposta.body;
+    })
+}
+
+const removeCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'DELETE',
+    })
+}
+
 export const clienteService = { //define um objeto que recebe o listaClientes, dessa forma ao acessar no listaClientes-controller essa função será necessário usar a notação ponto
-    listaClientes
+    listaClientes,
+    criaCliente,
+    removeCliente
 }
