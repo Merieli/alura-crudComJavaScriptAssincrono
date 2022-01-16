@@ -20,4 +20,9 @@ From your command line:
     $ npm install -g json-server
     $ json-server --watch db.json
 
+# Due to the use of modules having the Live Server extension in VS Code to run the web page
+# Open the desired page by clicking "Open with Live Server"
+# Or use "browser-sync"
+
+# Ready to use!
 ```
