@@ -1,5 +1,5 @@
 ## 🚀 Technologies
-- JSON Server (Javascript Fake full Rest API)
+- <a rel="external" target="_blank" href="https://www.npmjs.com/package/json-server">JSON Server (Javascript Fake full Rest API)</a>
 
 ## ℹ️ How To Use
 To clone and run this application, you'll need Git, Node.js and Json Server.

@@ -6,7 +6,7 @@ const criaNovaLinha = (nome, email, id) => {
         <td>${email}</td>
         <td>
             <ul class="tabela__botoes-controle">
-                <li><a href="../telas/edita_cliente.html?id=" class="botao-simples botao-simples--editar">Editar</a></li>
+                <li><a href="../telas/edita_cliente.html?id=${id}" class="botao-simples botao-simples--editar">Editar</a></li>
                 <li><button class="botao-simples botao-simples--excluir" type="button">Excluir</button></li>
             </ul>
         </td>`;
@@ -22,7 +22,7 @@ tabela.addEventListener('click', (event) => {
     if (ehBotaoDeletar){
         const linhaCliente = evento.target.clossest('[data-id]'); //pega o elemento mais proximo de data-id que é o data attribute da TR
         let id = linhaCliente.dataset.id;
-        clienteService.removeCliente(id);
+        clienteService.removeCliente(id)
         .then( () => {
             linhaCliente.remove() //remove toda a tr
         })
