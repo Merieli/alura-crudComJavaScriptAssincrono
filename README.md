@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <img src="../crud-com-js-assincrono/project/logo.png" alt="logo doguito petshop" width="120">
+    <img src="project/logo.png" alt="logo doguito petshop" width="120">
     <br>
     <br>
     Doguito Petshop - Customer Table
@@ -15,8 +15,8 @@
 </p>
 
 <div align="center">
-  <img src="../crud-com-js-assincrono/project/demo-01.gif" alt="demo-web" height="425">
-  <img src="../crud-com-js-assincrono/project/demo-02-error.gif" alt="error-demo-web" height="425">
+  <img src="project/demo-01.gif" alt="demo-web" height="425">
+  <img src="project/demo-02-error.gif" alt="error-demo-web" height="425">
 </div>
 
 <hr/>
