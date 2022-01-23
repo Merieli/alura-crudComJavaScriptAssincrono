@@ -17,21 +17,33 @@ const criaNovaLinha = (nome, email, id) => {
 
 const tabela = document.querySelector('[data-tabela]');
 
-tabela.addEventListener('click', (event) => {
-    let ehBotaoDeletar = event.target.className == 'botao-simples botao-simples--excluir';
+tabela.addEventListener('click', async (evento) => {
+    let ehBotaoDeletar = evento.target.className == 'botao-simples botao-simples--excluir';
     if (ehBotaoDeletar){
-        const linhaCliente = evento.target.clossest('[data-id]'); //pega o elemento mais proximo de data-id que é o data attribute da TR
-        let id = linhaCliente.dataset.id;
-        clienteService.removeCliente(id)
-        .then( () => {
-            linhaCliente.remove() //remove toda a tr
-        })
+        try{
+            const linhaCliente = evento.target.closest('[data-id]'); //pega o elemento mais proximo de data-id que é o data attribute da TR
+            let id = linhaCliente.dataset.id;
+            await clienteService.removeCliente(id);
+            linhaCliente.remove(); //remove toda a tr
+        } 
+        catch(erro){
+            console.error(erro);
+            window.location.href = '../telas/erro.html';
+        }
     }
-})
-
-clienteService.listaClientes()
-.then( data =>{ //método then retorna a promise executando o que estiver entre parenteses
-    data.forEach(elemento => { //itera cada elemento da resposta
-        tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id)); //exibe os dados dos clientes na pagina lista_cliente
-    }); //response obtem o valor do que o servidor devolveu na requisição
 });
+
+const render = async () => {
+    try{
+        const listaClientes = await clienteService.listaClientes()
+        listaClientes.forEach(elemento => { //itera cada elemento da resposta
+            tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id)); //exibe os dados dos clientes na pagina lista_cliente
+        }); //response obtem o valor do que o servidor devolveu na requisição
+    } 
+    catch(erro){
+        console.error(erro)
+        window.location.href = '../telas/erro.html'
+    };
+};
+
+render();
