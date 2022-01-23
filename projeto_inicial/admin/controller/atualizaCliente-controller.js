@@ -28,7 +28,7 @@ import { clienteService } from "../service/cliente-service.js";
         } 
         catch(erro){
             console.error(erro);
-            //window.location.href = '../telas/erro.html';
+            window.location.href = '../telas/erro.html';
         }   
         
     })
